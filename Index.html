@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZASTPRIM STORE</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090914;color:white;font-family:Arial,sans-serif}
+header{background:#15152b;padding:20px;text-align:center}
+header h1{color:#a78bfa;margin:0}
+header p{color:#bbb}
+.search{width:90%;padding:14px;margin:18px 5%;border-radius:12px;border:1px solid #555;background:#17172a;color:white;font-size:16px}
+h2{padding:0 16px}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;padding:14px}
+.card{background:#17172a;padding:12px;border-radius:16px;text-align:center;border:1px solid #30304c}
+.icon{height:90px;width:90px;border-radius:20px;background:linear-gradient(135deg,#7c3aed,#06b6d4);display:flex;align-items:center;justify-content:center;font-size:35px;margin:auto}
+.card h3{font-size:17px}
+.card p{font-size:12px;color:#bbb}
+button{background:#8b5cf6;color:white;border:0;padding:11px;border-radius:9px;width:100%;font-weight:bold}
+footer{text-align:center;padding:25px;color:#888}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>👑 ZASTPRIM STORE</h1>
+<p>Your Gaming Universe 🎮</p>
+</header>
+
+<input class="search" id="search"
+placeholder="🔍 Search games..."
+oninput="findGames()">
+
+<h2>🔥 Explore Games</h2>
+
+<div class="games" id="games">
+
+<div class="card">
+<div class="icon">🚗</div>
+<h3>RELTEL</h3>
+<p>Open World Game</p>
+<button onclick="downloadGame('reltel')">Download</button>
+</div>
+
+<div class="card">
+<div class="icon">🧱</div>
+<h3>Block World</h3>
+<p>Build your own world</p>
+<button onclick="downloadGame('blockworld')">Download</button>
+</div>
+
+<div class="card">
+<div class="icon">🌌</div>
+<h3>Space Adventure</h3>
+<p>Explore the universe</p>
+<button onclick="downloadGame('space')">Download</button>
+</div>
+
+<div class="card">
+<div class="icon">🏎️</div>
+<h3>Speed Racing</h3>
+<p>Racing adventure</p>
+<button onclick="downloadGame('racing')">Download</button>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 ZASTPRIM STORE</p>
+<p>Made with ❤️ by ZASTPRIM</p>
+</footer>
+
+<script>
+function findGames(){
+ let q=document.getElementById('search').value.toLowerCase();
+ document.querySelectorAll('.card').forEach(card=>{
+ card.style.display=card.innerText.toLowerCase().includes(q)?'block':'none';
+ });
+}
+
+function downloadGame(game){
+ const links={
+  reltel:'',
+  blockworld:'',
+  space:'',
+  racing:''
+ };
+ if(!links[game]){
+  alert('Game APK upload karna abhi baaki hai!');
+  return;
+ }
+ window.location.href=links[game];
+}
+</script>
+
+</body>
+  </html>
